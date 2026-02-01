@@ -1,0 +1,285 @@
+﻿Date,ID,Chamber.Channel,Run,Location,Species,Temp.Cat,Start.time,Stop.Time,Light_Dark,Organism.ID,Volume,AFDW,Blank,Total.Chamber.Vol.mL,Organism.Vol.mL
+7/11/23,Tpla1_16C,1,5,Tijeretas,Tplanospira,16,10:30:23,10:43:56,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_20C,1,5,Tijeretas,Tplanospira,20,11:15:08,11:28:14,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_24C,1,5,Tijeretas,Tplanospira,24,11:56:13,12:08:58,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_26C,1,5,Tijeretas,Tplanospira,26,12:32:21,12:45:14,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_28C,1,5,Tijeretas,Tplanospira,28,13:07:07,13:20:52,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_30C,1,5,Tijeretas,Tplanospira,30,13:43:25,13:56:31,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_32C,1,5,Tijeretas,Tplanospira,32,14:16:21,14:29:27,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_34C,1,5,Tijeretas,Tplanospira,34,14:47:23,15:00:42,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_36C,1,5,Tijeretas,Tplanospira,36,15:21:53,15:35:07,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_40C,1,5,Tijeretas,Tplanospira,40,16:07:36,16:22:05,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla1_42C,1,5,Tijeretas,Tplanospira,42,16:45:36,16:59:18,Dark,Tpla1,0.645,3.305,0,675,30
+7/11/23,Tpla2_16C,2,5,Tijeretas,Tplanospira,16,10:30:24,10:43:59,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_20C,2,5,Tijeretas,Tplanospira,20,11:15:10,11:28:17,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_24C,2,5,Tijeretas,Tplanospira,24,11:56:17,12:09:02,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_26C,2,5,Tijeretas,Tplanospira,26,12:32:23,12:45:16,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_28C,2,5,Tijeretas,Tplanospira,28,13:07:10,13:20:55,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_30C,2,5,Tijeretas,Tplanospira,30,13:43:28,13:56:36,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_32C,2,5,Tijeretas,Tplanospira,32,14:16:23,14:29:30,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_34C,2,5,Tijeretas,Tplanospira,34,14:47:25,15:00:45,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_36C,2,5,Tijeretas,Tplanospira,36,15:21:59,15:35:09,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_40C,2,5,Tijeretas,Tplanospira,40,16:08:36,16:22:08,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla2_42C,2,5,Tijeretas,Tplanospira,42,16:45:38,16:59:21,Dark,Tpla2,0.665,1.774,0,675,10
+7/11/23,Tpla3_16C,3,5,Tijeretas,Tplanospira,16,10:30:27,10:44:02,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_20C,3,5,Tijeretas,Tplanospira,20,11:15:16,11:28:20,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_24C,3,5,Tijeretas,Tplanospira,24,11:56:20,12:09:05,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_26C,3,5,Tijeretas,Tplanospira,26,12:32:27,12:45:19,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_28C,3,5,Tijeretas,Tplanospira,28,13:07:14,13:20:58,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_30C,3,5,Tijeretas,Tplanospira,30,13:43:45,13:56:40,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_32C,3,5,Tijeretas,Tplanospira,32,14:16:25,14:29:32,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_34C,3,5,Tijeretas,Tplanospira,34,14:47:29,15:00:48,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_36C,3,5,Tijeretas,Tplanospira,36,15:22:02,15:35:13,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_40C,3,5,Tijeretas,Tplanospira,40,16:07:40,16:22:11,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla3_42C,3,5,Tijeretas,Tplanospira,42,16:46:35,16:59:25,Dark,Tpla3,0.625,5.523,0,675,50
+7/11/23,Tpla4_16C,4,5,Tijeretas,Tplanospira,16,10:30:32,10:44:06,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_20C,4,5,Tijeretas,Tplanospira,20,11:15:20,11:28:23,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_24C,4,5,Tijeretas,Tplanospira,24,11:56:24,12:09:08,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_26C,4,5,Tijeretas,Tplanospira,26,12:32:31,12:45:22,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_28C,4,5,Tijeretas,Tplanospira,28,13:07:17,13:21:01,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_30C,4,5,Tijeretas,Tplanospira,30,13:43:49,13:56:44,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_32C,4,5,Tijeretas,Tplanospira,32,14:16:27,14:29:35,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_34C,4,5,Tijeretas,Tplanospira,34,14:47:33,15:00:51,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_36C,4,5,Tijeretas,Tplanospira,36,15:22:05,15:35:16,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_40C,4,5,Tijeretas,Tplanospira,40,16:07:42,16:22:14,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla4_42C,4,5,Tijeretas,Tplanospira,42,16:46:44,16:59:15,Dark,Tpla4,0.64,3.553,0,675,35
+7/11/23,Tpla5_16C,5,5,Tijeretas,Tplanospira,16,10:30:37,10:44:08,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_20C,5,5,Tijeretas,Tplanospira,20,11:15:23,11:28:25,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_24C,5,5,Tijeretas,Tplanospira,24,11:56:27,12:09:12,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_26C,5,5,Tijeretas,Tplanospira,26,12:32:35,12:45:25,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_28C,5,5,Tijeretas,Tplanospira,28,13:07:21,13:21:04,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_30C,5,5,Tijeretas,Tplanospira,30,13:43:53,13:56:47,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_32C,5,5,Tijeretas,Tplanospira,32,14:16:30,14:29:37,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_34C,5,5,Tijeretas,Tplanospira,34,14:47:37,15:00:54,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_36C,5,5,Tijeretas,Tplanospira,36,15:22:09,15:35:18,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_40C,5,5,Tijeretas,Tplanospira,40,16:13:13,16:22:17,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla5_42C,5,5,Tijeretas,Tplanospira,42,16:45:46,16:59:30,Dark,Tpla5,0.63,5.078,0,675,45
+7/11/23,Tpla7_16C,7,5,Tijeretas,Tplanospira,16,10:30:44,10:44:14,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_20C,7,5,Tijeretas,Tplanospira,20,11:15:30,11:28:32,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_24C,7,5,Tijeretas,Tplanospira,24,11:56:35,12:09:19,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_26C,7,5,Tijeretas,Tplanospira,26,12:32:41,12:45:34,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_28C,7,5,Tijeretas,Tplanospira,28,13:07:29,13:21:11,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_30C,7,5,Tijeretas,Tplanospira,30,13:44:05,13:56:53,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_32C,7,5,Tijeretas,Tplanospira,32,14:16:34,14:29:45,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_34C,7,5,Tijeretas,Tplanospira,34,14:47:46,15:01:03,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_36C,7,5,Tijeretas,Tplanospira,36,15:22:15,15:35:26,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_40C,7,5,Tijeretas,Tplanospira,40,16:07:52,16:22:23,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla7_42C,7,5,Tijeretas,Tplanospira,42,16:45:52,16:59:36,Dark,Tpla7,0.625,3.103,0,675,50
+7/11/23,Tpla8_16C,8,5,Tijeretas,Tplanospira,16,10:30:47,10:44:17,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_20C,8,5,Tijeretas,Tplanospira,20,11:15:34,11:28:35,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_24C,8,5,Tijeretas,Tplanospira,24,11:56:39,12:09:23,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_26C,8,5,Tijeretas,Tplanospira,26,12:32:46,12:45:37,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_28C,8,5,Tijeretas,Tplanospira,28,13:07:32,13:21:15,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_30C,8,5,Tijeretas,Tplanospira,30,13:44:08,13:56:56,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_32C,8,5,Tijeretas,Tplanospira,32,14:16:36,14:29:49,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_34C,8,5,Tijeretas,Tplanospira,34,14:47:49,15:01:06,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_36C,8,5,Tijeretas,Tplanospira,36,15:22:18,15:35:29,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_40C,8,5,Tijeretas,Tplanospira,40,16:07:55,16:22:26,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla8_42C,8,5,Tijeretas,Tplanospira,42,16:46:15,16:59:40,Dark,Tpla8,0.63,3.157,0,675,45
+7/11/23,Tpla9_16C,9,5,Tijeretas,Tplanospira,16,10:30:54,10:44:20,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_20C,9,5,Tijeretas,Tplanospira,20,11:15:38,11:28:38,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_24C,9,5,Tijeretas,Tplanospira,24,11:56:44,12:09:27,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_26C,9,5,Tijeretas,Tplanospira,26,12:32:51,12:45:40,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_28C,9,5,Tijeretas,Tplanospira,28,13:07:36,13:21:18,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_30C,9,5,Tijeretas,Tplanospira,30,13:44:11,13:57:02,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_32C,9,5,Tijeretas,Tplanospira,32,14:16:38,14:29:51,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_34C,9,5,Tijeretas,Tplanospira,34,14:47:53,15:01:10,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_36C,9,5,Tijeretas,Tplanospira,36,15:22:21,15:35:32,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_40C,9,5,Tijeretas,Tplanospira,40,16:07:58,16:22:30,Dark,Tpla9,0.64,1.378,0,675,35
+7/11/23,Tpla9_42C,9,5,Tijeretas,Tplanospira,42,16:45:58,16:59:43,Dark,Tpla9,0.64,1.378,0,675,35
+7/4/23,Vmel1_20C,1,1,Tijeretas,Vmelones,20,10:51:32,11:06:38,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_24C,1,1,Tijeretas,Vmelones,24,11:39:55,11:54:30,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_26C,1,1,Tijeretas,Vmelones,26,12:21:41,12:37:04,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_28C,1,1,Tijeretas,Vmelones,28,13:01:23,13:16:05,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_30C,1,1,Tijeretas,Vmelones,30,13:38:41,13:57:25,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_32C,1,1,Tijeretas,Vmelones,32,14:06:39,14:21:45,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_34C,1,1,Tijeretas,Vmelones,34,14:46:00,15:01:36,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_36C,1,1,Tijeretas,Vmelones,36,15:21:14,15:36:10,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel1_40C,1,1,Tijeretas,Vmelones,40,16:30:32,16:47:24,Dark,Vmel1,0.615,3.832,0,675,60
+7/4/23,Vmel3_20C,3,1,Tijeretas,Vmelones,20,10:51:37,11:06:43,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_24C,3,1,Tijeretas,Vmelones,24,11:40:02,11:54:36,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_26C,3,1,Tijeretas,Vmelones,26,12:21:46,12:37:12,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_28C,3,1,Tijeretas,Vmelones,28,13:01:28,13:16:11,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_30C,3,1,Tijeretas,Vmelones,30,13:38:51,13:57:29,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_32C,3,1,Tijeretas,Vmelones,32,14:06:47,14:21:51,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_34C,3,1,Tijeretas,Vmelones,34,14:46:05,15:01:49,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_36C,3,1,Tijeretas,Vmelones,36,15:21:17,15:36:19,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel3_40C,3,1,Tijeretas,Vmelones,40,16:30:36,16:47:30,Dark,Vmel3,0.615,1.685,0,675,60
+7/4/23,Vmel4_20C,4,1,Tijeretas,Vmelones,20,10:51:40,11:06:46,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_24C,4,1,Tijeretas,Vmelones,24,11:40:04,11:54:39,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_26C,4,1,Tijeretas,Vmelones,26,12:21:49,12:37:15,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_28C,4,1,Tijeretas,Vmelones,28,13:01:31,13:16:13,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_30C,4,1,Tijeretas,Vmelones,30,13:38:54,13:57:32,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_32C,4,1,Tijeretas,Vmelones,32,14:06:51,14:21:54,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_34C,4,1,Tijeretas,Vmelones,34,14:46:08,15:01:54,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_36C,4,1,Tijeretas,Vmelones,36,15:21:20,15:36:22,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel4_40C,4,1,Tijeretas,Vmelones,40,16:30:42,16:47:32,Dark,Vmel4,0.595,2.802,0,675,80
+7/4/23,Vmel5_20C,5,1,Tijeretas,Vmelones,20,10:51:43,11:06:49,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_24C,5,1,Tijeretas,Vmelones,24,11:40:07,11:54:42,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_26C,5,1,Tijeretas,Vmelones,26,12:21:52,12:37:19,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_28C,5,1,Tijeretas,Vmelones,28,13:01:36,13:16:16,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_30C,5,1,Tijeretas,Vmelones,30,13:38:56,13:57:34,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_32C,5,1,Tijeretas,Vmelones,32,14:06:55,14:21:57,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_34C,5,1,Tijeretas,Vmelones,34,14:46:12,15:01:57,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_36C,5,1,Tijeretas,Vmelones,36,15:21:23,15:36:24,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel5_40C,5,1,Tijeretas,Vmelones,40,16:30:44,16:47:36,Dark,Vmel5,0.603,3.51,0,675,72
+7/4/23,Vmel6_20C,6,1,Tijeretas,Vmelones,20,10:51:47,11:06:52,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_24C,6,1,Tijeretas,Vmelones,24,11:40:11,11:54:23,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_26C,6,1,Tijeretas,Vmelones,26,12:21:55,12:37:21,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_28C,6,1,Tijeretas,Vmelones,28,13:01:40,13:16:18,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_30C,6,1,Tijeretas,Vmelones,30,13:38:59,13:57:36,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_32C,6,1,Tijeretas,Vmelones,32,14:06:58,14:22:01,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_34C,6,1,Tijeretas,Vmelones,34,14:46:16,15:02:00,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_36C,6,1,Tijeretas,Vmelones,36,15:21:28,15:36:28,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel6_40C,6,1,Tijeretas,Vmelones,40,16:30:48,16:47:38,Dark,Vmel6,0.605,2.158,0,675,70
+7/4/23,Vmel7_20C,7,1,Tijeretas,Vmelones,20,10:51:49,11:06:55,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_24C,7,1,Tijeretas,Vmelones,24,11:40:15,11:54:48,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_26C,7,1,Tijeretas,Vmelones,26,12:21:58,12:37:25,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_28C,7,1,Tijeretas,Vmelones,28,13:01:42,13:16:21,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_30C,7,1,Tijeretas,Vmelones,30,13:39:02,13:57:38,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_32C,7,1,Tijeretas,Vmelones,32,14:07:02,14:22:05,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_34C,7,1,Tijeretas,Vmelones,34,14:46:20,15:02:04,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_36C,7,1,Tijeretas,Vmelones,36,15:21:30,15:36:30,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel7_40C,7,1,Tijeretas,Vmelones,40,16:30:51,16:47:41,Dark,Vmel7,0.61,2.8,0,675,65
+7/4/23,Vmel8_20C,8,1,Tijeretas,Vmelones,20,10:51:53,11:06:58,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_24C,8,1,Tijeretas,Vmelones,24,11:40:19,11:54:52,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_26C,8,1,Tijeretas,Vmelones,26,12:22:02,12:37:28,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_28C,8,1,Tijeretas,Vmelones,28,13:01:46,13:16:24,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_30C,8,1,Tijeretas,Vmelones,30,13:39:05,13:57:40,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_32C,8,1,Tijeretas,Vmelones,32,14:07:08,14:22:09,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_34C,8,1,Tijeretas,Vmelones,34,14:46:23,15:02:08,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_36C,8,1,Tijeretas,Vmelones,36,15:21:34,15:36:33,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel8_40C,8,1,Tijeretas,Vmelones,40,16:30:54,16:47:45,Dark,Vmel8,0.62,2.882,0,675,55
+7/4/23,Vmel9_20C,9,1,Tijeretas,Vmelones,20,10:51:55,11:07:04,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_24C,9,1,Tijeretas,Vmelones,24,11:40:26,11:54:56,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_26C,9,1,Tijeretas,Vmelones,26,12:22:05,12:37:31,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_28C,9,1,Tijeretas,Vmelones,28,13:01:50,13:16:27,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_30C,9,1,Tijeretas,Vmelones,30,13:39:07,13:57:43,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_32C,9,1,Tijeretas,Vmelones,32,14:09:38,14:22:12,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_34C,9,1,Tijeretas,Vmelones,34,14:46:26,15:02:12,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_36C,9,1,Tijeretas,Vmelones,36,15:21:37,15:36:40,Dark,Vmel9,0.615,2.322,0,675,60
+7/4/23,Vmel9_40C,9,1,Tijeretas,Vmelones,40,16:30:56,16:47:47,Dark,Vmel9,0.615,2.322,0,675,60
+6/28/22,W1_16C,1,8,La Barcaza,Hprinceps,16,14:39:00,14:51:59,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_20C,1,8,La Barcaza,Hprinceps,20,15:44:14,16:06:21,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_22C,1,8,La Barcaza,Hprinceps,22,16:22:20,16:36:01,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_24C,1,8,La Barcaza,Hprinceps,24,17:04:54,17:18:06,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_26C,1,8,La Barcaza,Hprinceps,26,17:39:43,17:56:29,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_28C   ,1,8,La Barcaza,Hprinceps,28,18:27:21,18:37:52,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_30C,1,8,La Barcaza,Hprinceps,30,19:01:49,19:16:56,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_32C,1,8,La Barcaza,Hprinceps,32,19:45:31,19:57:38,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_34C,1,8,La Barcaza,Hprinceps,34,20:24:24,20:39:00,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_36C,1,8,La Barcaza,Hprinceps,36,21:11:18,21:26:13,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_39C,1,8,La Barcaza,Hprinceps,39,22:05:02,22:20:41,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W1_42C,1,8,La Barcaza,Hprinceps,42,22:54:51,23:12:43,Dark,W1,1.5,67,0,1.2,300
+6/28/22,W3_16C,3,8,La Barcaza,Hprinceps,16,14:44:01,14:56:15,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_20C,3,8,La Barcaza,Hprinceps,20,15:45:11,16:06:24,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_22C,3,8,La Barcaza,Hprinceps,22,16:22:23,16:41:52,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_24C,3,8,La Barcaza,Hprinceps,24,17:01:51,17:18:10,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_26C,3,8,La Barcaza,Hprinceps,26,17:39:47,17:54:13,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_28C,3,8,La Barcaza,Hprinceps,28,18:26:06,18:37:56,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_30C,3,8,La Barcaza,Hprinceps,30,19:01:51,19:16:58,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_32C,3,8,La Barcaza,Hprinceps,32,19:44:11,19:57:41,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_34C,3,8,La Barcaza,Hprinceps,34,20:24:37,20:39:14,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_36C,3,8,La Barcaza,Hprinceps,36,21:10:19,21:26:17,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_39C,3,8,La Barcaza,Hprinceps,39,22:04:01,22:20:46,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W3_42C,3,8,La Barcaza,Hprinceps,42,22:54:56,23:12:46,Dark,W3,1.5,67,0,1.2,300
+6/28/22,W5_16C,5,8,La Barcaza,Hprinceps,16,14:39:11,15:00:10,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_20C,5,8,La Barcaza,Hprinceps,20,15:55:02,16:06:26,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_22C,5,8,La Barcaza,Hprinceps,22,16:22:25,16:41:04,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_24C,5,8,La Barcaza,Hprinceps,24,17:00:22,17:10:29,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_26C,5,8,La Barcaza,Hprinceps,26,17:40:53,17:56:34,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_28C,5,8,La Barcaza,Hprinceps,28,18:16:32,18:37:58,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_30C,5,8,La Barcaza,Hprinceps,30,19:01:54,19:17:03,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_32C,5,8,La Barcaza,Hprinceps,32,19:50:24,19:57:45,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_34C,5,8,La Barcaza,Hprinceps,34,20:24:47,20:39:22,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_36C,5,8,La Barcaza,Hprinceps,36,21:11:56,21:26:21,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_39C,5,8,La Barcaza,Hprinceps,39,22:04:21,22:20:49,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W5_42C,5,8,La Barcaza,Hprinceps,42,22:56:49,23:12:52,Dark,W5,1.5,45,0,1.2,300
+6/28/22,W6_20C,6,8,La Barcaza,Hprinceps,20,15:44:23,16:06:28,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_22C,6,8,La Barcaza,Hprinceps,22,16:22:28,16:42:00,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_24C,6,8,La Barcaza,Hprinceps,24,17:05:31,17:18:18,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_26C,6,8,La Barcaza,Hprinceps,26,17:39:52,17:51:37,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_28C,6,8,La Barcaza,Hprinceps,28,18:16:34,18:38:01,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_30C,6,8,La Barcaza,Hprinceps,30,19:01:56,19:17:06,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_32C,6,8,La Barcaza,Hprinceps,32,19:40:55,19:57:49,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_34C,6,8,La Barcaza,Hprinceps,34,20:24:56,20:39:28,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_36C,6,8,La Barcaza,Hprinceps,36,21:10:54,21:26:24,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_39C,6,8,La Barcaza,Hprinceps,39,22:04:11,22:20:52,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W6_42C,6,8,La Barcaza,Hprinceps,42,22:56:52,23:12:56,Dark,W6,1.5,48,0,1.2,300
+6/28/22,W8_16C,8,8,La Barcaza,Hprinceps,16,14:37:11,14:46:59,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_20C,8,8,La Barcaza,Hprinceps,20,15:44:25,15:55:35,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_22C,8,8,La Barcaza,Hprinceps,22,16:22:31,16:38:19,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_24C,8,8,La Barcaza,Hprinceps,24,17:00:31,17:11:02,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_26C,8,8,La Barcaza,Hprinceps,26,17:39:54,17:51:46,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_28C,8,8,La Barcaza,Hprinceps,28,18:21:47,18:38:03,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_30C,8,8,La Barcaza,Hprinceps,30,19:01:59,19:16:16,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_32C,8,8,La Barcaza,Hprinceps,32,19:39:31,19:57:53,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_34C,8,8,La Barcaza,Hprinceps,34,20:25:10,20:39:32,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_36C,8,8,La Barcaza,Hprinceps,36,21:10:35,21:26:13,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_39C,8,8,La Barcaza,Hprinceps,39,22:07:53,22:20:55,Dark,W8,1.5,55,0,1.2,300
+6/28/22,W8_42C,8,8,La Barcaza,Hprinceps,42,22:55:17,23:13:00,Dark,W8,1.5,55,0,1.2,300
+8/1/22,Hcumingi_16C_1_O2,1,1,Tijeretas,Hcummingi,16,11:13:03,11:17:17,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_16C_3_O2,3,3,Tijeretas,Hcummingi,16,11:06:41,11:19:39,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_16C_5_O2,5,5,Tijeretas,Hcummingi,16,11:16:49,11:19:42,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_16C_6_O2,6,6,Tijeretas,Hcummingi,16,11:04:22,11:19:45,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_16C_8_O2,8,8,Tijeretas,Hcummingi,16,11:04:29,11:19:48,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_18C_1_O2,1,1,Tijeretas,Hcummingi,18,11:41:12,11:54:09,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_18C_3_O2,3,3,Tijeretas,Hcummingi,18,11:41:19,11:47:48,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_18C_5_O2,5,5,Tijeretas,Hcummingi,18,11:41:24,11:54:15,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_18C_6_O2,6,6,Tijeretas,Hcummingi,18,11:41:31,11:51:15,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_18C_8_O2,8,8,Tijeretas,Hcummingi,18,11:41:37,11:54:22,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_20C_1_O2,1,1,Tijeretas,Hcummingi,20,12:16:10,12:19:47,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_20C_3_O2,3,3,Tijeretas,Hcummingi,20,12:16:16,12:30:29,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_20C_5_O2,5,5,Tijeretas,Hcummingi,20,12:16:21,12:30:33,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_20C_6_O2,6,6,Tijeretas,Hcummingi,20,12:22:17,12:30:36,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_20C_8_O2,8,8,Tijeretas,Hcummingi,20,12:16:32,12:20:33,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_22C_1_O2,1,1,Tijeretas,Hcummingi,22,13:09:46,13:21:32,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_22C_3_O2,3,3,Tijeretas,Hcummingi,22,13:09:48,13:21:36,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_22C_5_O2,5,5,Tijeretas,Hcummingi,22,13:09:57,13:21:39,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_22C_6_O2,6,6,Tijeretas,Hcummingi,22,13:10:06,13:21:42,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_22C_8_O2,8,8,Tijeretas,Hcummingi,22,13:10:11,13:21:44,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_24C_1_O2,1,1,Tijeretas,Hcummingi,24,13:37:49,13:51:09,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_24C_3_O2,3,3,Tijeretas,Hcummingi,24,13:37:54,13:51:13,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_24C_5_O2,5,5,Tijeretas,Hcummingi,24,13:37:57,13:51:18,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_24C_6_O2,6,6,Tijeretas,Hcummingi,24,13:41:38,13:51:22,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_24C_8_O2,8,8,Tijeretas,Hcummingi,24,13:41:09,13:51:26,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_26C_1_O2,1,1,Tijeretas,Hcummingi,26,14:07:18,14:19:54,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_26C_3_O2,3,3,Tijeretas,Hcummingi,26,14:07:23,14:19:57,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_26C_5_O2,5,5,Tijeretas,Hcummingi,26,14:07:28,14:20:01,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_26C_6_O2,6,6,Tijeretas,Hcummingi,26,14:07:31,14:20:04,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_26C_8_O2,8,8,Tijeretas,Hcummingi,26,14:07:35,14:20:07,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_28C_1_O2,1,1,Tijeretas,Hcummingi,28,14:34:57,14:47:52,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_28C_3_O2,3,3,Tijeretas,Hcummingi,28,14:35:01,14:47:55,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_28C_5_O2,5,5,Tijeretas,Hcummingi,28,14:35:05,14:47:58,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_28C_6_O2,6,6,Tijeretas,Hcummingi,28,14:35:10,14:48:01,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_28C_8_O2,8,8,Tijeretas,Hcummingi,28,14:35:16,14:48:05,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_30C_1_O2,1,1,Tijeretas,Hcummingi,30,15:03:52,15:15:45,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_30C_3_O2,3,3,Tijeretas,Hcummingi,30,15:03:57,15:15:49,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_30C_5_O2,5,5,Tijeretas,Hcummingi,30,15:04:03,15:15:54,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_30C_6_O2,6,6,Tijeretas,Hcummingi,30,15:04:06,15:16:00,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_30C_8_O2,8,8,Tijeretas,Hcummingi,30,15:11:00,15:13:15,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_32C_1_O2,1,1,Tijeretas,Hcummingi,32,15:36:27,15:48:52,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_32C_3_O2,3,3,Tijeretas,Hcummingi,32,15:36:31,15:48:55,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_32C_5_O2,5,5,Tijeretas,Hcummingi,32,15:36:36,15:46:02,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_32C_6_O2,6,6,Tijeretas,Hcummingi,32,15:36:59,15:49:02,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_32C_8_O2,8,8,Tijeretas,Hcummingi,32,15:37:05,15:49:06,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_34C_1_O2,1,1,Tijeretas,Hcummingi,34,16:07:09,16:19:09,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_34C_3_O2,3,3,Tijeretas,Hcummingi,34,16:07:13,16:19:12,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_34C_5_O2,5,5,Tijeretas,Hcummingi,34,16:07:19,16:19:15,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_34C_6_O2,6,6,Tijeretas,Hcummingi,34,16:07:23,16:19:18,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_34C_8_O2,8,8,Tijeretas,Hcummingi,34,16:11:43,16:19:22,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_36C_1_O2,1,1,Tijeretas,Hcummingi,36,16:37:19,16:50:20,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_36C_3_O2,3,3,Tijeretas,Hcummingi,36,16:37:23,16:50:24,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_36C_5_O2,5,5,Tijeretas,Hcummingi,36,16:37:29,16:50:28,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_36C_6_O2,6,6,Tijeretas,Hcummingi,36,16:37:32,16:46:47,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_36C_8_O2,8,8,Tijeretas,Hcummingi,36,16:41:30,16:50:44,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_39C_1_O2,1,1,Tijeretas,Hcummingi,39,17:15:38,17:28:58,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_39C_3_O2,3,3,Tijeretas,Hcummingi,39,17:15:42,17:29:02,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_39C_5_O2,5,5,Tijeretas,Hcummingi,39,17:15:45,17:29:06,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_39C_6_O2,6,6,Tijeretas,Hcummingi,39,17:15:52,17:29:09,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_39C_8_O2,8,8,Tijeretas,Hcummingi,39,17:15:58,17:29:13,Dark,Hcumingi8,1.5,23,0,1500,1.28
+8/1/22,Hcumingi_41C_1_O2,1,1,Tijeretas,Hcummingi,41,17:49:20,18:02:10,Dark,Hcumingi1,1.5,49,0,1500,1.1
+8/1/22,Hcumingi_41C_3_O2,3,3,Tijeretas,Hcummingi,41,17:49:24,18:02:13,Dark,Hcumingi3,1.5,39,0,1500,1.1
+8/1/22,Hcumingi_41C_5_O2,5,5,Tijeretas,Hcummingi,41,17:49:27,18:02:16,Dark,Hcumingi5,1.5,100,0,1500,0.94
+8/1/22,Hcumingi_41C_6_O2,6,6,Tijeretas,Hcummingi,41,17:49:35,18:02:19,Dark,Hcumingi6,1.5,79,0,1500,1
+8/1/22,Hcumingi_41C_8_O2,8,8,Tijeretas,Hcummingi,41,17:49:42,18:02:23,Dark,Hcumingi8,1.5,23,0,1500,1.28
