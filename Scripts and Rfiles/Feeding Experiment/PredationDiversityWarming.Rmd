@@ -1,0 +1,363 @@
+---
+title: "PredatorDiversityWarming"
+author: "Esteban Agudo"
+date: "2024-12-24"
+output: html_document
+---
+
+
+# PREDATOR DIVERSITY ENHANCE RESILIENCE TO WARMING
+Comparation between several predator to warming in rocky reefs in the Galapagos
+
+Loading package
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(emmeans)
+library(cowplot)
+library(broom)
+library(clipr)
+library(magrittr)
+```
+
+Loading data
+```{r, warning=FALSE, message=FALSE}
+data<-read.csv(file="Data_predation.csv",h=TRUE)
+str(data)
+data$Treatment<-as.factor(data$Treatment)
+data$Species<-as.factor(data$Species)
+```
+
+## Plotting feeding rates across predators 
+
+```{r, warning=FALSE, message=FALSE}
+summary.df<-data%>%
+group_by(Treatment,Species)%>%
+summarize (
+  mean=round(mean(PredationPerDay, na.rm = TRUE), 2),     
+  max = round(max(PredationPerDay, na.rm = TRUE), 2),
+  min = round(min(PredationPerDay, na.rm = TRUE), 2),
+  sd = sd(PredationPerDay, na.rm = TRUE),
+  n = n(),
+  se=sd / sqrt(n))%>% 
+  mutate(lowerci = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         upperci = mean + qt(1 - (0.05 / 2), n - 1) * se)  
+
+X<-summary.df$Treatment
+df <- summary.df
+colour <- summary.df$Species
+overall.mean <- round(mean(data$PredationPerDay), 2)
+ylab <- "Feeding rate"
+xlab <- "Temperature"
+title <- " "
+```
+
+Vassula melones is feeding on a diferent species so we will create a scond axis for it
+
+```{r, warning=FALSE, message=FALSE}
+a<-data%>%
+  dplyr::filter(Species=="Vasula_melones")
+
+a<-max(a$PredationPerDay)  
+
+b<-data %>%
+  filter(!Species=="Vasula_melones")
+
+b<-max(b$PredationPerDay)  
+
+c<-a/b
+
+data_v_norm<-data %>%
+  filter(Species=="Vasula_melones") %>%
+  mutate(PredationPerDay=PredationPerDay/c)
+
+data_filter<-data %>%
+  filter(!Species=="Vasula_melones")
+
+data2<-rbind(data_filter, data_v_norm)
+
+#sumarizing to get the new estimates of mean and SE
+
+df2<-data2%>%
+group_by(Treatment,Species)%>%
+summarize (
+  mean=round(mean(PredationPerDay, na.rm = TRUE), 2),     
+  max = round(max(PredationPerDay, na.rm = TRUE), 2),
+  min = round(min(PredationPerDay, na.rm = TRUE), 2),
+  sd = sd(PredationPerDay, na.rm = TRUE),
+  n = n(),
+  se=sd / sqrt(n))%>% 
+  mutate(lowerci = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         upperci = mean + qt(1 - (0.05 / 2), n - 1) * se)  
+```
+#### Ploting feeding rates among species
+
+```{r, warning=FALSE, message=FALSE}
+pred_curves<-ggplot() +
+    theme_classic() + # sets plot theme (removes gridlines, etc.)
+    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.7)) + # adds box around plot area
+    geom_point(data = data2, aes(x =Treatment, y=PredationPerDay, colour = Species), shape = 1, alpha = 0.4, size=1,  position = position_jitterdodge(jitter.width = NULL, jitter.height =0.01, dodge.width = 0.85)) + #remove points due to be too much stuff
+    geom_errorbar(data = df2, aes(x = Treatment, ymin = mean-se, ymax = mean+se, colour = Species), size = 8, width = 0, alpha = 0.3, position = position_dodge(width = 0.85), show.legend = FALSE) + # this plots SE behind the mean, can use also CI with summarize
+    geom_point(data = df2, aes(x = Treatment, y = mean, colour = Species), shape = "-", size = 20, position = position_dodge(width = 0.85)) +
+  #    geom_point(data = data2, aes(x =Treatment, y=PredationPerDay, colour = Species), shape = 1, alpha = 0.4,  position = position_jitterdodge(jitter.width = NULL, jitter.height =0.01, dodge.width = 0.85)) +
+    stat_smooth(data=data2, aes(x=Treatment, y=PredationPerDay, group=Species, colour=Species), stat="smooth",  method = "loess", formula = y ~ x, se=FALSE, geom="line", alpha=0.4, linewidth = 1, alpha=0.2)+ 
+    scale_colour_manual(name = "", values =  c(Vasula_melones="coral4", Tribulus_planospira="orangered1", Heliaster_cumingi="dodgerblue1", Hexaplex_princeps="orange1"),
+                      labels= c(Vasula_melones=expression(italic("Vasula melones")), Tribulus_planospira= expression(italic("Tribulus planospira")), Heliaster_cumingi= expression(italic("Heliaster cumingi")), Hexaplex_princeps=expression(italic("Hexaplex princeps"))))+
+#  scale_x_discrete(labels=c("16°C", "19°C", "21°C", "22-23°C", "25-26°C", "28-29°C", "31-32°C"))+
+    scale_x_discrete(labels=c("16", "19", "21", "22", "23", "25", "26", "28", "29", "31", "32"))+
+   scale_y_continuous("Feeding rates (Barnacles per day)", expand=c(0.01, 0.01), breaks=seq(0, 0.9, 0.1), limits = c(-0.05, 0.9), sec.axis = sec_axis(~ . * c, name = expression(paste(italic("Vasula melones"), " feeding rates (Snails per day)")), breaks=seq(0, 2.2, 0.2)))+
+  #    sec.axis = sec_axis(~ . * c, name = expression(paste("Snails per day (",italic("Vasula melones"),")")), breaks=seq(0, 2.2, 0.2)))+
+   xlab("Temperature treatment (°C)") + # x-axis label
+  ggtitle(title)+ # whole plot title
+  theme(axis.text.x = element_text(size = 13),
+        axis.text.y = element_text(size = 13),
+        axis.title.y = element_text(size = 17, hjust = 0.65, vjust = 0),
+        axis.title.x = element_text(size = 18),
+                legend.position = c(0.20, 0.9),
+                legend.text=element_text(size=14))+
+  guides(colour = guide_legend(override.aes = list(shape = 16, size=2.8)))+
+  annotate("text",
+           x = 6.72,
+           y = 0.03,
+           label = "+",
+           family = "", fontface = 3, size=5)
+
+pred_curves
+```
+I added a curve  stat="smooth",  method = "loess", formula = y ~ x just to have a graphic idea of variation on feeding performance. 
+
+
+## Ploting respiration thermal performances curves
+```{r, warning=FALSE, message=FALSE}
+#loading respiration rates
+resp_data<-read.csv(file="Resp_preds.csv", header=TRUE)
+
+resp_data_mod<-resp_data%>%
+  select(ID, Species, K, rate)%>%
+  mutate(Temperature=K-273.15)
+
+
+#loading predictions from TPCs models
+resp_pred<-read.csv(file="preds2_resp.csv", header=TRUE)
+head(resp_pred)
+
+resp_pred<-resp_pred%>% 
+  filter(Species==c("Hcummingi", "Tplanospira", "Hprinceps", "Vmelones"))
+
+str(resp_pred)
+
+
+resp_curves<-ggplot() +
+    theme_classic() + # sets plot theme (removes gridlines, etc.)
+    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.7)) + # adds box around plot area
+    geom_point(data = resp_data_mod, aes(x =Temperature, y=rate, colour = Species), shape = 16, alpha = 0.7, size=1.8) + #remove points due to be too much stuff
+  geom_ribbon(data = resp_pred, aes(x=K-273.15, y = ln.rate, fill = Species), stat = "smooth", method = "loess", formula = y ~ x, alpha = 0.4) +
+  geom_line(data = resp_pred, aes(x = K - 273.15, y = ln.rate, color = Species), stat = "smooth", method = "loess", formula = y ~ x, se = TRUE)+
+#    stat_smooth(data = resp_data_mod, aes(x=Temperature, y=rate, group=Species, colour=Species), stat="smooth",  method = "gam", formula = y ~ x, se=FALSE, geom="line", alpha=0.4, linewidth = 1, alpha=0.2)+ 
+   # plots the mean value 
+    scale_color_manual(name = "", values =  c(Vmelones="coral4", Tplanospira="orangered1", Hcummingi="dodgerblue1", Hprinceps="orange1"))+
+      scale_fill_manual(name = "", values =  c(Vmelones="coral4", Tplanospira="orangered1", Hcummingi="dodgerblue1", Hprinceps="orange1"))+
+      scale_colour_manual(name = "", values =  c(Vmelones="coral4", Tplanospira="orangered1", Hcummingi="dodgerblue1", Hprinceps="orange1"))+
+      scale_y_continuous(expression("Rate (log " * mu * "mol " * cm^-2 * hr^-1 * ")"), expand=c(0.01, 0.01), breaks=seq(0, 4, 0.5), limits = c(-0.05, 3))+
+   xlab("Temperature (°C)") + # x-axis label
+  theme(axis.text.x = element_text(size = 13),
+        axis.text.y = element_text(size = 13),
+        axis.title.y = element_text(size = 17, hjust = 0.6, vjust = 0),
+        axis.title.x = element_text(size = 18),
+                legend.position = "none")
+
+resp_curves
+```
+
+## Ploting Thermal optimun 
+Loading data 
+```{r, warning=FALSE, message=FALSE}
+Topt_data_no<-read.csv(file="Topt_nooutliers_F.csv", header=TRUE)
+head(Topt_data_no)
+
+Topt_data_no$Species<-as.factor(Topt_data_no$Species)
+
+levels(Topt_data_no$Species)
+
+Topt<- Topt_data_no %>%
+  dplyr::filter(predator.prey=="Predator") %>%
+  dplyr::filter(!Species=="N.grandis")
+  
+levels(Topt$Species)
+
+Topt$Species<-factor(Topt$Species, levels=c("H.cumingi",  "H.princeps", "T.planospira", "V.melones"))
+
+Topt_summary<-Topt %>%
+  dplyr::select(Species, Topt)%>%
+  dplyr::group_by(Species) %>%
+  dplyr::summarise(mean=mean(Topt, na.rm=TRUE), sd=sd(Topt, na.rm=TRUE), n=sum(!is.na(Topt))) %>%
+  mutate(se=sd/sqrt(n))
+```
+
+Ploting Topt
+```{r, warning=FALSE, message=FALSE}
+Topt_plot<-ggplot()+
+     geom_point(data=Topt_summary, aes(x=Species, y=mean, colour=Species), shape="-", size = 20, position = position_dodge(width = 0.85))+
+    geom_linerange(data=Topt_summary, aes(x=Species, ymin=mean-se, ymax=mean+se, colour=Species),  size = 8, alpha = 0.4, position = position_dodge(width = 0.85))+
+    geom_jitter(data=Topt, aes(x=Species, y=Topt, colour=Species), shape=1, size=1.5, alpha=0.5, position = position_jitterdodge(jitter.width = 0.1, jitter.height = 0.02, dodge.width = 0.85))+
+    theme_classic()+
+    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.7),
+       #axis.text.x = element_text(size = 12, face='italic', family = "Arial", angle = 65, hjust=1 ),  
+         axis.text.x=element_blank(),
+         axis.text.y=element_text(size=13),
+         axis.ticks.x=element_blank(),
+         axis.title.y = element_text(size = 17, hjust = 0.5, vjust = 0.5, family = "Arial"),          legend.position="none")+ 
+  ylab("Thermal optimun (ºC)")+
+    xlab(expression(""))+
+  scale_y_continuous(limits=c(21, 41), breaks = seq(20, 42, by = 5), position="left")+
+  scale_colour_manual(name = "", values = c(V.melones="coral4", T.planospira="orangered1", H.cumingi="dodgerblue1", H.princeps="orange1"))
+
+Topt_plot
+```
+
+### Combining plots 
+
+
+```{r, warning=FALSE, message=FALSE}
+plot_grid(resp_curves, Topt_plot, pred_curves, ncol = 3, rel_widths = c(0.6, 0.2, 1.2),  rel_heights = c(1, 0.22, 1.5), align = "h")
+
+ggsave("plot_rates.png", height = 20, width = 40, units = 'cm', dpi= 300, type = "cairo")
+
+```
+
+
+## Statistical comparation of feeding rates among predators 
+```{r, warning=FALSE, message=FALSE}
+#first let's separate each species
+pred_VM<-data %>%
+  filter(Species=="Vasula_melones")
+
+pred_TP<-data %>%
+  filter(Species=="Tribulus_planospira")
+
+pred_HC<-data %>%
+  filter(Species=="Heliaster_cumingi")
+
+pred_HP<-data %>%
+  filter(Species=="Hexaplex_princeps")
+```
+#### Statistical comparation for Vassula melones
+```{r, warning=FALSE, message=FALSE}
+modelVM<-glm((PredationPerDay+0.01)~Treatment, family=Gamma(link=log), data=pred_VM)
+a<-summary(modelVM)  
+summary_Vm<-as.data.frame(a$coefficients) 
+#write_clip(summary_Vm) # copying results into excel 
+
+pred_VM$Tr<-relevel(pred_VM$Treatment, "23C") #releveling to run model again 
+
+modelVM<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_VM)
+summary(modelVM)  
+a<-summary(modelVM)  
+summary_Vm<-as.data.frame(a$coefficients)
+#write_clip(summary_Vm)
+
+pred_VM$Tr<-relevel(pred_VM$Treatment, "26C") #releveling to run model again 
+
+modelVM<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_VM)
+summary(modelVM)  
+a<-summary(modelVM)  
+summary_Vm<-as.data.frame(a$coefficients) 
+#write_clip(summary_Vm)
+
+pred_VM$Tr<-relevel(pred_VM$Treatment, "29C")
+
+modelVM<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_VM)
+summary(modelVM)  
+a<-summary(modelVM)  
+summary_Vm<-as.data.frame(a$coefficients) 
+#write_clip(summary_Vm) #copying results into excel 
+
+pred_VM$Tr<-relevel(pred_VM$Treatment, "32C")
+
+```
+
+#### Statistical comparation for Tribulus planospira
+```{r, warning=FALSE, message=FALSE}
+modelTP<-glm((PredationPerDay+0.01)~Treatment, family=Gamma(link=log), data=pred_TP)
+summary(modelTP)
+b<-summary(modelTP)  
+summary_TP<-as.data.frame(b$coefficients) 
+#write_clip(summary_TP) # copying results into excel 
+
+pred_TP$Tr<-relevel(pred_TP$Treatment, "22C") # releveling before running model again 
+
+modelTP<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_TP)
+summary(modelTP)  
+b<-summary(modelTP)  
+summary_TP<-as.data.frame(b$coefficients) 
+#write_clip(summary_TP) # copying results into excel 
+
+
+pred_TP$Tr<-relevel(pred_TP$Treatment, "25C")
+
+modelTP<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_TP)
+summary(modelTP)
+b<-summary(modelTP)  
+summary_TP<-as.data.frame(b$coefficients) 
+#write_clip(summary_TP) # copying results into excel 
+
+pred_TP$Tr<-relevel(pred_TP$Treatment, "28C")
+
+modelTP<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_TP)
+summary(modelTP)  
+b<-summary(modelTP)  
+summary_TP<-as.data.frame(b$coefficients) 
+#write_clip(summary_TP) # copying results into excel 
+
+pred_TP$Tr<-relevel(pred_TP$Treatment, "31C")
+
+modelTP<-glm((PredationPerDay+0.01)~Treatment, family=Gamma(link=log), data=pred_TP)
+summary(modelTP)  
+
+```
+
+
+#### Statistical comparation for Hexaplex princeps
+
+```{r, warning=FALSE, message=FALSE}
+modelHP<-glm((PredationPerDay+0.01)~Treatment, family=Gamma(link=log), data=pred_HP)
+summary(modelHP)
+c<-summary(modelHP)  
+summary_HP<-as.data.frame(c$coefficients) 
+#write_clip(summary_HP) # copying results into excel 
+
+pred_HP$Tr<-relevel(pred_HP$Treatment, "21C") # relevel
+
+modelHP<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_HP)
+summary(modelHP)
+c<-summary(modelHP)  
+summary_HP<-as.data.frame(c$coefficients) 
+#write_clip(summary_HP) # copying results into excel 
+
+pred_HP$Tr<-relevel(pred_HP$Treatment, "26C") # relevel
+
+modelHP<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_HP)
+summary(modelHP)
+c<-summary(modelHP)  
+summary_HP<-as.data.frame(c$coefficients) 
+#write_clip(summary_HP) # copying results into excel
+```
+
+#### Statistical comparation for Hexaplex princeps
+
+```{r, warning=FALSE, message=FALSE}
+modelHC<-glm((PredationPerDay+0.01)~Treatment, family=Gamma(link=log), data=pred_HC)
+summary(modelHC)
+d<-summary(modelHC)  
+summary_HC<-as.data.frame(d$coefficients) 
+#write_clip(summary_HC) # copying results into excel 
+
+
+pred_HC$Tr<-relevel(pred_HC$Treatment, "23C") # relevel
+
+modelHC<-glm((PredationPerDay+0.01)~Tr, family=Gamma(link=log), data=pred_HC)
+summary(modelHC)
+d<-summary(modelHC)  
+summary_HC<-as.data.frame(d$coefficients) 
+#write_clip(summary_HC) # copying results into excel 
+
