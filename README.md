@@ -1,6 +1,6 @@
 # Predator response diversity to warming enables ecosystem resilience in the Galápagos
 
-This code repository contains all data and analysis for the associated manuscript
+This code repository contains all data and analysis for the associated manuscript (https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000652)
 
 **Authors:** Nicole Chico-Ortiz*, Esteban Agudo-Adriani, Haley E. Capone, Isabel Silva, Margarita Brandt, John F. Bruno
 
