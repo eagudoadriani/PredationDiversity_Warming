@@ -1,0 +1,5 @@
+Species,Experiment,subtidal.intertidal,Season,Organism.ID,TC,E,Eh,lnc,Th,Topt
+Hcumingi,Predation,intertidal,Cold,NA,20,0.343409652,0.996006187,3.519268281,318.813645,26.43362233
+Hprinceps,Predation,subtidal,Cold,NA,22,-0.196020056,0.331480926,3.079719744,306.5241849,29.80884486
+Tplanospira,Predation,subtidal,Warm,NA,25,-3.311730242,-0.830823509,8.824138612,312.3516624,35.326773
+Vmelones,Predation,subtidal,Warm,NA,25,70.86904473,74.95125603,47.22621369,297.5475756,38.76204426

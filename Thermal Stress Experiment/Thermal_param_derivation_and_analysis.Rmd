@@ -1,0 +1,456 @@
+---
+title: "Predator thermal stress - Thermal parameter derivation and analysis"
+output: html_document
+date: '2023-12-05'
+---
+# Install and load necessary packages 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) # will automatically include code in the ouput unless we state otherwise
+knitr::opts_chunk$set(warning= FALSE) # will NOT include warning messages in the output unless we state otherwise
+# knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE) #keeps code wrapped in the output
+# if you haven't installed these packages run the following line (first delete the # sign):
+
+install.packages(c("tidyverse", "janitor", "kableExtra", "cowplot", "skimr", "measurements"))
+library(tidyverse) #data wrangling & cleaning incl. ggplot
+library(janitor) # more data cleaning functions
+library(kableExtra) # making pretty tables
+library(cowplot) # making publication quality figures or multi-panel figures
+library(skimr) # tool to get quick overview of dataset
+library(measurements) # useful to convert units
+library(magrittr) # magrittr::
+library(boot)
+library(mime)
+library(checkmate)
+library(curl)
+library(nls.multstart)
+library(broom) #augment
+library(boot)
+library(nlstools)
+library(proto)
+library(nls2)
+library(here)
+library(lme4)
+library(Matrix)
+library(lmerTest)
+library(stats)
+library(Rmisc)
+library(purrr) #map
+library(Hmisc)
+library(FSA)
+library(rcompanion)
+library(car)
+library(multcompView)
+library(lsmeans)
+library(sjstats)
+library(pwr)
+library(jtools)
+library(ggpubr)
+library(multcomp)
+library(sjPlot)
+library(sjlabelled)
+library(sjmisc)
+library(ggeffects)
+library(wesanderson)
+library(patchwork)
+library(dplyr)
+
+```
+
+```{r}
+#load the previously generated file containing the respiration rates for all individuals across temperatures
+
+setwd("~/Desktop/TPC Project")
+
+mydata<-read.csv('Photo.R_rates.csv')
+
+#mydata$X<-NULL
+View(mydata)
+
+```
+
+# Load the Sharpe-Schoolfield equation for high-temperature inactivation
+```{r}
+# define the Sharpe-Schoolfield equation
+schoolfield_high <- function(lnc, E, Eh, Th, temp, Tc) {
+  Tc <- 273.15 + Tc
+  k <- 8.62e-5
+  boltzmann.term <- lnc + log(exp(E/k*(1/Tc - 1/temp))) #units are eV/K, electrovolts/Kelvin
+  inactivation.term <- log(1/(1 + exp(Eh/k*(1/Th - 1/temp))))
+  return(boltzmann.term + inactivation.term)
+}
+
+```
+
+# Fitting the model using the Sharpe-Schoolfield equation
+```{r}
+# fit over each set of groupings
+#this takes 2-3 mins to run
+
+mydata$K<-mydata$Temp.C + 273.15 # creating a column of  Temperature in Kelvins
+
+fits <- mydata %>%
+  group_by(., Organism.ID, Species, Experiment, fed.fasted, subtidal.intertidal, Season, predator.prey) %>%
+  nest() %>%
+  mutate(fit = purrr::map(data, ~ nls_multstart(ln.rate ~ schoolfield_high(lnc, E, Eh, Th, temp = K, Tc = TC),
+                                                data = .x,
+                                                iter = 1000,
+                                                start_lower = c(lnc = -10, E = -5, Eh = -5, Th = 180),
+                                                start_upper = c(lnc = 10, E = 5, Eh = 70, Th = 390),
+                                                supp_errors = 'Y',
+                                                na.action = na.omit,
+                                                lower = c(lnc = -10, E = -10, Eh = -10, Th = -10))))
+
+```
+
+# Check out model fits
+```{r}
+# look at a single fit
+summary(fits$fit[[1]])
+
+# look at output object
+#select(fits, ID, data, fit)  
+
+# get summary info
+info <- fits %>%
+  unnest_legacy(fit %>% map(glance))
+
+# get params
+params <- fits %>%
+  unnest_legacy(fit %>% map(tidy))
+```
+
+# Merging datafiles
+```{r}
+#left join params with meta data file to have treatment in data frame
+
+params <- left_join(params, mydata, by = "Organism.ID")
+
+View(params)
+write.csv(params, "../Cni_phys_TPC/Output/params_table.csv")
+```
+
+# Estimating Confidence Intervals 
+```{r}
+#Estimating the confidence interval for the model
+CI <- fits %>% 
+  unnest_legacy(fit %>% map(~ confint2(.x) %>%
+                       data.frame() #%>%
+                  #     rename(., conf.low = X2.5.., conf.high = X97.5.. )
+                     )) %>%
+  dplyr::group_by(., Organism.ID) %>%
+  dplyr::mutate(., term = c('lnc', 'E', 'Eh', 'Th')) %>%
+  ungroup()
+
+CI
+```
+
+# Changing names for CI
+```{r}
+colnames(CI)[7:8]<-c("conf.low", "conf.high") # rename columns
+head(CI)
+
+# merge parameters and CI estimates
+params <- merge(params, CI, by = intersect(names(params), names(CI)))
+head(params)
+
+write.csv(params, "params_table.csv") #adding the CI to the parameter metadata matrix 
+
+# get predictions
+preds <- fits %>%
+  unnest_legacy(fit %>% map(augment))
+
+
+# new data frame of predictions, do this to set a sequence to make a smooth curve with your prediction points. We are making the prediction for a total 150 from the lowest temperature to the highest one. 
+
+ new_preds <- mydata %>%  do(., data.frame(K = seq(min(.$K), max(.$K), length.out = 300), stringsAsFactors = FALSE)) #setting a specific sequence so you can have a smooth curve
+ 
+ 
+max_min <- mydata %>% group_by(Organism.ID) %>%
+  dplyr::summarise(., min_K = min(K), max_K = max(K)) %>%
+  ungroup() 
+
+```
+
+# Generate new predictions
+```{r}
+preds2 <- fits %>%
+  unnest_legacy(fit %>% map(augment, newdata = new_preds)) %>%
+  merge(., max_min, by = "Organism.ID") %>%
+  group_by(., Organism.ID) %>%
+  filter(., K > unique(min_K) & K < unique(max_K)) %>%
+  dplyr::rename(., ln.rate = .fitted) %>%
+  ungroup()
+
+write.csv(preds2, "preds2.csv")
+```
+
+```{r}
+#left join preds2 with meta data file to have treatment on dataframe
+preds2 <- left_join(preds2, mydata)
+```
+
+
+# Calculating Topt
+```{r}
+get_topt <- function(E, Th, Eh){
+  return((Eh*Th)/(Eh + (8.62e-05 *Th*log((Eh/E) - 1))))
+}
+
+# Synthesizing data from all of the temperatures to one. I am summarizing (mean) all the rows for each species (110-12 temperatures). The mean of 10-12 values that are the same as the value (ie duplicates) 
+params <-read.csv("params_table.csv")
+params_short <- params %>%
+  dplyr::select(Species, Organism.ID, term, estimate, subtidal.intertidal, Season, TC) %>%
+  dplyr::group_by(Species, Organism.ID, term, subtidal.intertidal, Season, TC) %>%
+  dplyr::summarise(estimate = mean(estimate))
+
+View(params_short)
+
+#Nyssa's code for Topt using the summarize tool on each  
+Topt_data <- params_short %>%
+  dplyr::select(Organism.ID, Species, subtidal.intertidal, Season, term, estimate, TC) %>%
+  spread(term, estimate) %>%
+  mutate(Topt = get_topt(E, Th, Eh)) %>%
+  group_by(., Species, Organism.ID, subtidal.intertidal, Season, TC)
+
+View(Topt_data)
+
+#Converting topt to celsius 
+Topt_data$Topt <- Topt_data$Topt - 273.15 
+View(Topt_data)
+
+write.csv(Topt_data, "Topt_parameters.csv")
+
+
+Topt_summarise<-Topt_data %>%
+  group_by(., Species, subtidal.intertidal, Season) %>%
+  summarise_all(mean, na.rm=TRUE)
+
+#Topt_summarise$Topt_C<-Topt_summarise$Topt-273.15
+
+View(Topt_summarise)
+
+write.csv(Topt_summarise, "Summary_Tp_parameters.csv")
+
+```
+
+# Derive Pmax parameter
+```{r}
+Pmax <- Topt_data %>%
+  #dplyr::select(Species, Organism.ID, E, Eh, lnc, Th) %>%
+  #group_by(Species, Organism.ID) %>%
+  #summarise(Pmax = schoolfield_high(lnc = lnc, E = E, Th = Th , Eh = Eh, temp = Topt_data$Topt, Tc = 23))
+  mutate(Pmax = schoolfield_high(lnc = lnc, E = E, Th = Th, Eh = Eh, temp = Topt + 273.15, Tc = TC))
+ 
+write.csv(Pmax, "Pmax.csv")
+```
+
+
+# Plotting thermal performance curves (TPCs) by species across temperatures (Fig. 4A)
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Read data
+preds2 <- read.csv('preds2_resp.csv')
+mydata <- read.csv('Resp_preds.csv')
+
+# Define the list of species you want to filter
+species_list <- unique(mydata$Species)
+
+# Filter data
+mydata_filtered <- mydata %>% filter(Species %in% species_list)
+preds2_filtered <- preds2 %>% filter(Species %in% species_list, predator.prey == "Predator")
+
+# Define color and fill palette
+color_palette <- c("Tplanospira" = "orangered1", 
+                    "Hprinceps" = "orange1", 
+                    "Vmelones" = "coral4", 
+                    "Hcumingi" = "dodgerblue1")
+
+# Define custom labels for the legend with italicized text
+custom_labels <- c("Tplanospira" = expression(italic("T. planospira")),
+                    "Hprinceps" = expression(italic("H. princeps")),
+                    "Vmelones" = expression(italic("V. melones")),
+                    "Hcumingi" = expression(italic("H. cumingi")))
+
+# Manual computation of confidence intervals
+compute_ci <- function(df) {
+  fit <- loess(ln.rate ~ K, data = df, span = 0.2)
+  pred <- predict(fit, newdata = df, se = TRUE)
+  df$fit <- pred$fit
+  df$lower <- pred$fit - 1.96 * pred$se.fit
+  df$upper <- pred$fit + 1.96 * pred$se.fit
+  return(df)
+}
+
+preds2_ci <- preds2_filtered %>%
+  group_by(Species) %>%
+  do(compute_ci(.))
+
+# Plot with manual confidence intervals and consistent legend
+TPC <- ggplot(data = mydata_filtered) +
+  geom_point(aes(x = K - 273.15, y = rate, color = Species), size = 2) +  # Points colored by Species
+  geom_line(data = preds2_ci, aes(x = K - 273.15, y = fit, color = Species), size = 1) +
+  geom_ribbon(data = preds2_ci, aes(x = K - 273.15, ymin = lower, ymax = upper, fill = Species), alpha = 0.2, color = NA) +
+  scale_color_manual(values = color_palette, labels = custom_labels) +
+  scale_fill_manual(values = color_palette, labels = custom_labels) +
+  theme_bw(base_size = 12, base_family = 'Helvetica') +
+  ylab(expression(plain("Rate (log " * mu * "mol " * g^-1 * " hr"^-1 * ")"))) +  # Custom y-axis label
+  xlab('Temperature (ºC)') +
+  theme(strip.text.x = element_blank(),
+        strip.background = element_blank(),
+        legend.position = "right",  # Adjusted to show legend
+        legend.title = element_text(size = 16),  # Adjust legend title size
+        legend.text = element_text(size = 14, hjust = 0),  # Left-align legend text
+        legend.justification = c(0.4, 0.4),  # Align legend box to the left
+        legend.box.margin = margin(0, 0, 0, 0),
+        axis.text.x = element_text(face = "plain", color = "black", size = 18), 
+        axis.text.y = element_text(face = "plain", color = "black", size = 18),
+        axis.title.x = element_text(color = "black", size = 23, face = "plain"),
+        axis.title.y = element_text(color = "black", size = 23, face = "plain"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(color = "black"),
+        axis.ticks = element_line(color = "black")) +
+  scale_y_continuous(limits = c(0, 4.1), breaks = seq(0, 4, by = 1)) +
+  labs(col = "Species", fill = "Species")
+
+print(TPC)
+```
+
+# Removing outliers
+```{r}
+#Outlier Removal
+
+topt_Tpla_pred<- c(36.85329013, 17.19091269, 36.54186585, 33.86951498, 34.40569888, 36.63455529, 34.42686951, 34.28095702, 37.28888324)
+threshold <- 1.5
+all_outliers <- c()
+while (TRUE) {
+  mean_data <- mean(topt_Tpla_pred)
+  sd_data <- sd(topt_Tpla_pred)
+  z_scores <- (topt_Tpla_pred - mean_data) / sd_data
+ outliers <- which(abs(z_scores) > threshold)
+if (length(outliers) == 0) {
+    break
+}
+ cat("Outliers:", topt_Tpla_pred[outliers], "\n")
+  all_outliers <- c(all_outliers, topt_Tpla_pred[outliers])
+  topt_Tpla_pred <- topt_Tpla_pred[-outliers]
+}
+
+cat("All outliers:", all_outliers, "\n")
+
+topt_Vmel_pred<- c(24.55483845, 38.84118587)
+threshold <- 1.5
+all_outliers <- c()
+while (TRUE) {
+  mean_data <- mean(topt_Vmel_pred)
+  sd_data <- sd(topt_Vmel_pred)
+  z_scores <- (topt_Vmel_pred - mean_data) / sd_data
+ outliers <- which(abs(z_scores) > threshold)
+if (length(outliers) == 0) {
+    break
+}
+ cat("Outliers:", topt_Vmel_pred[outliers], "\n")
+  all_outliers <- c(all_outliers, topt_Vmel_pred[outliers])
+  topt_Vmel_pred <- topt_Vmel_pred[-outliers]
+}
+
+cat("All outliers:", all_outliers, "\n")
+
+```
+
+
+# Building your statistical models
+```{r}
+# Parameter modeling
+library(dplyr)
+
+#Make sure you are working with the correct dataset (i.e., no outliers)
+Topt_data <- read.csv("Topt_nooutliers.csv")
+
+Topt_data_predation <- Topt_data %>%
+  filter(Experiment %in% c("Predation"))
+
+
+# Convert Species to factor
+Topt_data_predation$Species <- as.factor(Topt_data_predation$Species)
+
+# Remove "Vmelones" and "Hcumingi" from the dataset
+Topt_data_predation_filtered <- Topt_data_predation %>%
+  filter(Species != "Vmelones" & Species != "Hcumingi")
+
+# Check the unique levels of Species after filtering
+levels(Topt_data_predation_filtered$Species)
+
+# Now, Topt_data_predation_filtered contains the dataset with "Vmelones" and "Hcumingi" removed
+
+
+# Relevel the factor variable
+Topt_data_predation_filtered$Species <- relevel(Topt_data_predation_filtered$Species, ref = "Tplanospira")
+
+
+# Fit the linear model
+glm <- glm(Topt ~ Species, data = Topt_data_predation_filtered, family = Gamma(link = "log"))
+
+R_lm <- lm(log(Topt) ~Species, data = Topt_data_predation_filtered)
+
+R <- lm(Topt ~Species, data = Topt_data_predation_filtered)
+
+
+AIC(glm, R_lm, R)
+
+BIC(glm, R_lm, R)
+
+# Obtain the residuals
+residuals_log <- residuals(R_lm )
+residuals_lm <- residuals(R)
+#residuals_log <- residuals(R_log)
+
+# Create a QQ plot using qqnorm() and qqline()
+
+qqnorm(residuals_log, main = "QQ Plot for Log")
+qqline(residuals_log, col = 2)
+
+qqnorm(residuals_lm, main = "QQ Plot for LM")
+qqline(residuals_lm, col = 2)
+```
+
+
+# Selecting your model
+```{r}
+# Selected model
+R_lm <- lm(log(Topt) ~Species, data = Topt_data_predation_filtered)
+```
+
+
+# Statistical analysis on the chosen model
+```{r}
+#To compare the means of the levels of the Species variable
+TukeyHSD(aov(R_lm))
+
+#Provides an overall assessment of the significance of the model and the individual predictors
+anova(R_lm)
+
+#Gives you detailed information about the coefficients, standard errors, t-values, and p-values for each predictor
+summary(R_lm)
+```
+
+
+# Pairwise comparisons for significance between groups
+```{r}
+#Pairwise comparisons between the levels of the Species variable to identify which groups are significantly different from each other
+
+#install.packages("multcomp")
+library(multcomp)
+
+# Create a contrast matrix for all pairwise comparisons between species
+cm <- glht(R_lm, linfct = mcp(Species = "Tukey"))
+
+# Perform the Tukey HSD test
+TukeyHSD <- summary(cm)
+
+# View the results
+print(TukeyHSD)
+```
